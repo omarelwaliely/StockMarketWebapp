@@ -1,0 +1,12 @@
+{
+    "ABC": {
+        "name": "ABC Corp",
+        "amount": 998,
+        "price": 49.005
+    },
+    "AAB": {
+        "name": "AAB Inc",
+        "amount": 1508,
+        "price": 470.448
+    }
+}
