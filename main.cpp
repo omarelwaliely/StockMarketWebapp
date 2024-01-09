@@ -1,8 +1,8 @@
 #include <iostream>
 #include <sys/types.h>
-#include <uistd.h>
 #include <sys/socket.h>
 #include <netdb.h>
+#include <unistd.h>
 #include <arpa/inet.h>
 #include <string.h>
 #include <string>
@@ -12,8 +12,8 @@ int main()
     int listening = socket(AF_INET, SOCK_STREAM, 0); // explain this in comment
     if (listening == -1)                             // failure when -1
     {
-        std::cerr << "Failed to create socket.";
-        return -1
+        std::cerr << "Failed to create socket." << std::endl;
+        return -1;
     }
     sockaddr_in hint;
     hint.sin_family = AF_INET;
@@ -24,14 +24,14 @@ int main()
     // bind the socket 'listening' to the 'hint' data structure, we cast from sockaddr_in * to sockaddr * to fit the function parameter
     if (bind(listening, (sockaddr *)&hint, sizeof(hint)) == -1) // error when -1
     {
-        std::cerr << "Unable to bind to IP or Port";
+        std::cerr << "Unable to bind to IP or Port" << std::endl;
         return -2;
     }
 
     // here we can start listening with maximum connections SOMAXCONN
     if (listen(listening, SOMAXCONN) == -1)
     {
-        std::cerr << "unable to listen";
+        std::cerr << "unable to listen" << std::endl;
         return -3;
     }
 
@@ -42,7 +42,7 @@ int main()
     int clientSocket = accept(listening, (sockaddr *)&client, &clientSize);
     if (clientSocket == -1)
     {
-        std::cerr << "client unable to connect";
+        std::cerr << "client unable to connect" << std::endl;
         return -4;
     }
     close(listening);
@@ -55,12 +55,12 @@ int main()
     int result = getnameinfo((sockaddr *)&client, sizeof(client), host, NI_MAXHOST, svc, NI_MAXSERV, 0);
     if (result)
     {
-        cout << host << "connected on " << svc << endl;
+        std::cout << host << " connected on " << svc << std::endl;
     }
     else // it couldnt be obtained so we do it manually
     {
         inet_ntop(AF_INET, &client.sin_addr, host, NI_MAXHOST);            // set the address of the client but first convert to little / big endian if needed
-        cout << host << "connected on " << ntohs(client.sin_port) << endl; // we use ntohs to again convert from little endian to big if we needed
+        std::cout << host << " connected on " << ntohs(client.sin_port) << std::endl; // we use ntohs to again convert from little endian to big if we needed
     }
 
     char buf[4096];
@@ -70,15 +70,16 @@ int main()
         int bytesRecv = recv(clientSocket, buf, 4096, 0);
         if (bytesRecv == -1)
         {
-            std::cerr << "connection issue detected." << endl;
+            std::cerr << "connection issue detected." << std::endl;
             break;
         }
         else if (bytesRecv == 0)
         {
-            cout << "Client disconnected" << endl;
+            std::cout << "Client disconnected" << std::endl;
             break;
         }
-        cout << "Received: " << string(buf, 0, bytesRecv) << endl;
+        std::cout << "Received: " << std::string(buf, 0, bytesRecv) << std::endl;
         send(clientSocket, buf, bytesRecv + 1, 0); // adding 1 due to the 0 at the end, this just echos
     }
+    return 0;
 }
