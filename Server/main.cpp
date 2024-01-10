@@ -1,9 +1,9 @@
 #include <iostream>
-#include "server.h"
+#include "server.cpp"
 
 int main()
 {
     Server myServer(54000);
-    myServer.listen();
+    myServer.startListen();
     return 0;
 }

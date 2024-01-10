@@ -1,6 +1,8 @@
 #include <sys/types.h>
 #include <string.h>
 #include <string>
+#include <arpa/inet.h>
+#pragma once
 class Server
 {
 private:
@@ -11,5 +13,5 @@ public:
     Server(int);
     Server(int, std::string);
     ~Server();
-    int listen();
+    int startListen();
 };
