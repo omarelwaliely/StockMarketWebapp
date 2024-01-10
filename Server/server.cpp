@@ -6,21 +6,46 @@
 #include <arpa/inet.h>
 #include <string.h>
 #include <string>
+#include "server.h"
 
-int main()
+Server::Server(int port) // default server which uses the wildcard ip 0.0.0.0 (any)
 {
-    int listening = socket(AF_INET, SOCK_STREAM, 0); // explain this in comment
-    if (listening == -1)                             // failure when -1
+    listeningSocket = socket(AF_INET, SOCK_STREAM, 0); // explain this in comment
+    if (listeningSocket == -1)                         // failure when -1
     {
         std::cerr << "Failed to create socket." << std::endl;
-        return -1;
+    }
+    hint.sin_family = AF_INET;
+    hint.sin_port = htons(port); // htons will switch to little or big endian if required
+    // below we bind the address by first converting the string to a number then we bind it to our hints address, note that 0.0.0.0 means any address
+    inet_pton(AF_INET, "0.0.0.0", &hint.sin_addr);
+}
+
+Server::Server(int port, std::string ip) // allow only specific ip
+{
+    listeningSocket = socket(AF_INET, SOCK_STREAM, 0); // explain this in comment
+    if (listeningSocket == -1)                         // failure when -1
+    {
+        std::cerr << "Failed to create socket." << std::endl;
     }
     sockaddr_in hint;
     hint.sin_family = AF_INET;
-    hint.sin_port = htons(54000); // htons will switch to little or big endian if required, nhtos
+    hint.sin_port = htons(54000); // htons will switch to little or big endian if required
     // below we bind the address by first converting the string to a number then we bind it to our hints address, note that 0.0.0.0 means any address
-    inet_pton(AF_INET, "0.0.0.0", &hint.sin_addr);
+    inet_pton(AF_INET, ip, &hint.sin_addr);
+}
 
+Server::~Server()
+{
+}
+
+int Server::listen()
+{
+    if (listeningSocket < 0)
+    {
+        std::cerr << "The socket failed, check previous errors." << std::endl;
+        return listeningSocket;
+    }
     // bind the socket 'listening' to the 'hint' data structure, we cast from sockaddr_in * to sockaddr * to fit the function parameter
     if (bind(listening, (sockaddr *)&hint, sizeof(hint)) == -1) // error when -1
     {
@@ -34,7 +59,7 @@ int main()
         std::cerr << "unable to listen" << std::endl;
         return -3;
     }
-
+    // will need to change this when i implement threading
     sockaddr_in client;
     socklen_t clientSize = sizeof(client);
     char host[NI_MAXHOST];
@@ -59,7 +84,7 @@ int main()
     }
     else // it couldnt be obtained so we do it manually
     {
-        inet_ntop(AF_INET, &client.sin_addr, host, NI_MAXHOST);            // set the address of the client but first convert to little / big endian if needed
+        inet_ntop(AF_INET, &client.sin_addr, host, NI_MAXHOST);                       // set the address of the client but first convert to little / big endian if needed
         std::cout << host << " connected on " << ntohs(client.sin_port) << std::endl; // we use ntohs to again convert from little endian to big if we needed
     }
 
@@ -81,5 +106,4 @@ int main()
         std::cout << "Received: " << std::string(buf, 0, bytesRecv) << std::endl;
         send(clientSocket, buf, bytesRecv + 1, 0); // adding 1 due to the 0 at the end, this just echos
     }
-    return 0;
 }
