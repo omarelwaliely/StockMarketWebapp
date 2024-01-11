@@ -50,6 +50,7 @@ int Server::startListen()
         std::cerr << "The socket failed, check previous errors." << std::endl;
         return listeningSocket;
     }
+
     // bind the socket 'listening' to the 'hint' data structure, we cast from sockaddr_in * to sockaddr * to fit the function parameter
     if (bind(listeningSocket, (sockaddr *)&hint, sizeof(hint)) == -1) // error when -1
     {
@@ -60,18 +61,20 @@ int Server::startListen()
     // here we can start listening with maximum connections SOMAXCONN
     if (listen(listeningSocket, SOMAXCONN) == -1)
     {
-        std::cerr << "unable to listen" << std::endl;
+        std::cerr << "Unable to listen" << std::endl;
         return -3;
     }
-    // will need to change this when i implement threading
+
+    // will need to change this when I implement threading
     sockaddr_in client;
     socklen_t clientSize = sizeof(client);
     char host[NI_MAXHOST];
     char svc[NI_MAXSERV];
+
     int clientSocket = accept(listeningSocket, (sockaddr *)&client, &clientSize);
     if (clientSocket == -1)
     {
-        std::cerr << "client unable to connect" << std::endl;
+        std::cerr << "Client unable to connect" << std::endl;
         return -4;
     }
     close(listeningSocket);
@@ -86,47 +89,53 @@ int Server::startListen()
     {
         std::cout << host << " connected on " << svc << std::endl;
     }
-    else // it couldnt be obtained so we do it manually
+    else // it couldn't be obtained so we do it manually
     {
         inet_ntop(AF_INET, &client.sin_addr, host, NI_MAXHOST);                       // set the address of the client but first convert to little / big endian if needed
         std::cout << host << " connected on " << ntohs(client.sin_port) << std::endl; // we use ntohs to again convert from little endian to big if we needed
     }
+
     char buf[4096];
     while (true)
     {
         memset(buf, 0, 4096);
-        int bytesRecv = recv(clientSocket, buf, 4096, 0); //store the recieved data in buf
-        if (bytesRecv == -1) //error code for connection issue
+        int bytesRecv = recv(clientSocket, buf, 4096, 0); // store the received data in buf
+        if (bytesRecv == -1) // error code for connection issue
         {
-            std::cerr << "connection issue detected." << std::endl;
+            std::cerr << "Connection issue detected." << std::endl;
             break;
         }
-        else if (bytesRecv == 0) //code for client disconnection
+        else if (bytesRecv == 0) // code for client disconnection
         {
             std::cout << "Client disconnected" << std::endl;
             break;
         }
-        // std::string message = std::string(buf,0,bytesRecv); //store the buf in a string (expected to be a json object)'
-        std::string message = R"({
-  "email": "user@example.com",
-  "password": "securepassword123",
-  "username": "example_username"
-})";
-        Request req("/register" ,message,"tokenhere"); 
-        Response res;
-        res = handler.handleRequest(req);
-        //testing
-        nlohmann::json responseJson = { //create the json which wont praticullary have everything in the response object depending on which response
-        {"header", res.getHeader()},
-        {"body", res.getBody()},
-        {"code", res.getCode()}};
 
-        std::string responseStr = responseJson.dump(); //convert back to string
-        std::cout << "Received: " << std::string(buf, 0, bytesRecv) << std::endl;
-        send(clientSocket, responseStr.c_str(), responseStr.size() + 1, 0); //send response
+        std::string message = std::string(buf, 0, bytesRecv); // store the buf in a string (expected to be a JSON object)
+        std::cout << message;
+
+        try
+        {
+            nlohmann::json jsonReq = nlohmann::json::parse(message);
+            Request req(jsonReq["endpoint"], jsonReq["body"].dump(), jsonReq["header"]);
+            Response res;
+            res = handler.handleRequest(req);
+
+            // testing
+            nlohmann::json responseJson = {
+                {"header", res.getHeader()},
+                {"body", res.getBody()},
+                {"code", res.getCode()}};
+
+            std::string responseStr = responseJson.dump(); // convert back to string
+            std::cout << "Received: " << std::string(buf, 0, bytesRecv) << std::endl;
+            send(clientSocket, responseStr.c_str(), responseStr.size() + 1, 0); // send response
+        }
+        catch (const nlohmann::json::exception &e)
+        {
+            std::cerr << "Error parsing JSON: " << e.what() << std::endl;
+        }
     }
+
     return 0;
 }
-
-
-
