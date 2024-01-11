@@ -13,5 +13,5 @@ class ServiceSocket:
             response = self.client_socket.recv(4096)
             print("Received:", response.decode())
         self.client_socket.close()
-svc = ServiceSocket('localhost',54001)
+svc = ServiceSocket('localhost',54000)
 svc.connect()

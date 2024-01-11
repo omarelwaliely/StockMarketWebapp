@@ -1,5 +1,7 @@
 #include <iostream>
 #include "endpointStrategy.h"
+#include "../request.h"
+#include "../response.h"
 #include "login.cpp"
 #include "logout.cpp"
 #include "register.cpp"
