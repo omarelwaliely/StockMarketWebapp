@@ -3,7 +3,7 @@
 
 # Relative path conversion top directories.
 set(CMAKE_RELATIVE_PATH_TOP_SOURCE "/home/omar/Documents/GitHub/StockMarketWebapp/Server")
-set(CMAKE_RELATIVE_PATH_TOP_BINARY "/home/omar/Documents/GitHub/StockMarketWebapp/Server")
+set(CMAKE_RELATIVE_PATH_TOP_BINARY "/home/omar/Documents/GitHub/StockMarketWebapp/Server/build")
 
 # Force unix paths in dependencies.
 set(CMAKE_FORCE_UNIX_PATHS 1)

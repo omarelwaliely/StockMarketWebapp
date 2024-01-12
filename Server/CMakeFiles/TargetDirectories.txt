@@ -1,3 +1,0 @@
-/home/omar/Documents/GitHub/StockMarketWebapp/Server/CMakeFiles/main.dir
-/home/omar/Documents/GitHub/StockMarketWebapp/Server/CMakeFiles/edit_cache.dir
-/home/omar/Documents/GitHub/StockMarketWebapp/Server/CMakeFiles/rebuild_cache.dir
