@@ -6,6 +6,9 @@
 #include "logout.cpp"
 #include "register.cpp"
 #include "notFound.cpp"
+#include "changeStock.cpp"
+#include "processedChange.cpp"
+
 #pragma once
 class EndpointHandler {
 private:
@@ -24,6 +27,12 @@ public:
         }
         else if (endpoint == "/register") {
             strategy = new Register();
+        }
+        else if (endpoint == "/changestock") {
+            strategy = new ChangeStock();
+        }
+        else if (endpoint == "/processedchange") {
+            strategy = new ProcessedChange();
         }
         else{
             std::cout << "no such endpoint exists!";

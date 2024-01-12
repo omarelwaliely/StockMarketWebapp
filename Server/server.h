@@ -7,20 +7,22 @@
 class Server
 {
 private:
-    int listeningSocket;
-    sockaddr_in hint;
+    int listeningSocketSvc;
+    int listeningSocketClients;
+    sockaddr_in hintSvc;
+    sockaddr_in hintClients;
     int createSocket(int port);
     int setupSocket();
     int bindSocket();
     int startListening();
-    int acceptConnection(sockaddr_in& , socklen_t& , char* , char* );
+    int handleService();
+    int acceptConnection(sockaddr_in& , socklen_t& , char* , char* ,int);
     void displayClientInfo(const sockaddr_in& , char* , char* );
     void processClientRequests(int, EndpointHandler&);
 
 public:
-    Server(int);
-    Server(int, std::string);
+    Server(int,int);
+    Server(int,int, std::string, std::string);
     ~Server();
-    int getListeningSocket () const {return listeningSocket;}
     int startListen();
 };

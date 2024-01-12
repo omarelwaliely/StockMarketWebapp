@@ -6,7 +6,7 @@ const WebSocket = require('ws');
 const app = express();
 const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
-const tcpServer = net.createConnection({ host: 'localhost', port: '54001' });
+const tcpServer = net.createConnection({ host: 'localhost', port: '54003' });
 
 wss.on('connection', (ws) => {
   console.log('WebSocket connection established');

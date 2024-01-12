@@ -3,7 +3,7 @@
 
 int main()
 {
-    Server myServer(54001);
+    Server myServer(54002,54003);
     myServer.startListen();
     return 0;
 }

@@ -341,4 +341,8 @@ CMakeFiles/main.dir/main.cpp.o: \
  /home/omar/Documents/GitHub/StockMarketWebapp/Server/endpoints/register.h \
  /home/omar/Documents/GitHub/StockMarketWebapp/Server/endpoints/notFound.cpp \
  /home/omar/Documents/GitHub/StockMarketWebapp/Server/endpoints/notFound.h \
+ /home/omar/Documents/GitHub/StockMarketWebapp/Server/endpoints/changeStock.cpp \
+ /home/omar/Documents/GitHub/StockMarketWebapp/Server/endpoints/changeStock.h \
+ /home/omar/Documents/GitHub/StockMarketWebapp/Server/endpoints/processedChange.cpp \
+ /home/omar/Documents/GitHub/StockMarketWebapp/Server/endpoints/processedChange.h \
  /home/omar/Documents/GitHub/StockMarketWebapp/Server/json.hpp
