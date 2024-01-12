@@ -6,6 +6,5 @@ def main():
     service_socket.connect()
 main()
 
-
         
         

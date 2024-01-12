@@ -237,14 +237,6 @@ CMakeFiles/main.dir/main.cpp.o: ../main.cpp \
   ../endpoints/endpointHandler.h \
   ../endpoints/endpointStrategy.h \
   ../request.h \
-  ../response.h \
-  ../endpoints/login.cpp \
-  ../endpoints/login.h \
-  /usr/include/c++/11/fstream \
-  /usr/include/c++/11/bits/codecvt.h \
-  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
-  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
-  /usr/include/c++/11/bits/fstream.tcc \
   ../json.hpp \
   /usr/include/c++/11/algorithm \
   /usr/include/c++/11/bits/stl_algo.h \
@@ -338,6 +330,7 @@ CMakeFiles/main.dir/main.cpp.o: ../main.cpp \
   /usr/include/x86_64-linux-gnu/c++/11/bits/time_members.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/messages_members.h \
   /usr/include/libintl.h \
+  /usr/include/c++/11/bits/codecvt.h \
   /usr/include/c++/11/bits/locale_facets_nonio.tcc \
   /usr/include/c++/11/bits/locale_conv.h \
   /usr/include/c++/11/iomanip \
@@ -351,6 +344,14 @@ CMakeFiles/main.dir/main.cpp.o: ../main.cpp \
   /usr/include/c++/11/bits/stl_numeric.h \
   /usr/include/c++/11/pstl/glue_numeric_defs.h \
   /usr/include/c++/11/any \
+  ../response.h \
+  ../endpoints/login.cpp \
+  ../endpoints/login.h \
+  /usr/include/c++/11/fstream \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
+  /usr/include/c++/11/bits/fstream.tcc \
+  ../json.hpp \
   /home/omar/jwt-cpp/include/jwt-cpp/jwt.h \
   /home/omar/jwt-cpp/include/picojson/picojson.h \
   /usr/include/c++/11/cinttypes \
@@ -456,8 +457,16 @@ CMakeFiles/main.dir/main.cpp.o: ../main.cpp \
   ../endpoints/changeStock.h \
   ../endpoints/processedChange.cpp \
   ../endpoints/processedChange.h \
+  ../endpoints/aquireStocks.cpp \
+  ../endpoints/aquireStocks.h \
+  ../endpoints/processAquireStocks.cpp \
+  ../endpoints/processAquireStocks.h \
   ../json.hpp
 
+
+../endpoints/aquireStocks.h:
+
+../endpoints/aquireStocks.cpp:
 
 ../endpoints/notFound.h:
 
@@ -527,6 +536,8 @@ CMakeFiles/main.dir/main.cpp.o: ../main.cpp \
 
 /usr/include/openssl/evperr.h:
 
+../endpoints/processAquireStocks.cpp:
+
 /usr/include/openssl/evp.h:
 
 /usr/include/openssl/lhash.h:
@@ -567,6 +578,8 @@ CMakeFiles/main.dir/main.cpp.o: ../main.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/posix1_lim.h:
 
+../endpoints/processAquireStocks.h:
+
 /usr/include/openssl/sslerr_legacy.h:
 
 /usr/include/x86_64-linux-gnu/openssl/configuration.h:
@@ -586,6 +599,16 @@ CMakeFiles/main.dir/main.cpp.o: ../main.cpp \
 /usr/include/c++/11/set:
 
 /home/omar/jwt-cpp/include/jwt-cpp/jwt.h:
+
+/usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h:
+
+/usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h:
+
+/usr/include/c++/11/fstream:
+
+../endpoints/login.h:
+
+../response.h:
 
 /usr/include/c++/11/bits/stl_numeric.h:
 
@@ -715,25 +738,11 @@ CMakeFiles/main.dir/main.cpp.o: ../main.cpp \
 
 /usr/include/c++/11/bits/stream_iterator.h:
 
-/usr/include/c++/11/cstddef:
-
-/usr/include/c++/11/bits/stl_vector.h:
-
-/usr/include/c++/11/bits/stl_uninitialized.h:
-
-/usr/include/c++/11/vector:
-
-/usr/include/c++/11/bits/unordered_map.h:
-
-/usr/include/c++/11/bits/hashtable_policy.h:
-
 /usr/include/c++/11/bits/shared_ptr.h:
 
 /usr/include/c++/11/bits/stl_construct.h:
 
 /usr/include/c++/11/bits/cxxabi_forced.h:
-
-/usr/include/c++/11/fstream:
 
 /usr/include/linux/limits.h:
 
@@ -746,12 +755,6 @@ CMakeFiles/main.dir/main.cpp.o: ../main.cpp \
 /usr/include/c++/11/experimental/bits/lfts_config.h:
 
 /usr/include/x86_64-linux-gnu/gnu/stubs.h:
-
-/usr/include/x86_64-linux-gnu/bits/fp-fast.h:
-
-/usr/include/c++/11/bits/node_handle.h:
-
-/usr/include/c++/11/iostream:
 
 /usr/include/c++/11/algorithm:
 
@@ -834,6 +837,8 @@ CMakeFiles/main.dir/main.cpp.o: ../main.cpp \
 /usr/include/x86_64-linux-gnu/bits/types.h:
 
 /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:
+
+/usr/include/c++/11/bits/unordered_map.h:
 
 /usr/include/c++/11/ext/alloc_traits.h:
 
@@ -945,6 +950,12 @@ CMakeFiles/main.dir/main.cpp.o: ../main.cpp \
 
 /usr/include/stdc-predef.h:
 
+/usr/include/openssl/dtls1.h:
+
+/usr/include/c++/11/bits/fstream.tcc:
+
+/usr/include/asm-generic/posix_types.h:
+
 ../endpoints/endpointStrategy.h:
 
 /usr/include/c++/11/ext/numeric_traits.h:
@@ -972,6 +983,12 @@ CMakeFiles/main.dir/main.cpp.o: ../main.cpp \
 /usr/include/c++/11/tr1/gamma.tcc:
 
 /usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
+
+/usr/include/x86_64-linux-gnu/bits/fp-fast.h:
+
+/usr/include/c++/11/iostream:
+
+/usr/include/c++/11/bits/node_handle.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/locale_t.h:
 
@@ -1026,6 +1043,12 @@ CMakeFiles/main.dir/main.cpp.o: ../main.cpp \
 /usr/include/c++/11/bits/forward_list.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h:
+
+../endpoints/login.cpp:
+
+/usr/include/unistd.h:
+
+/usr/include/c++/11/bits/stl_algobase.h:
 
 /usr/include/x86_64-linux-gnu/bits/sockaddr.h:
 
@@ -1119,25 +1142,11 @@ CMakeFiles/main.dir/main.cpp.o: ../main.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/waitflags.h:
 
-/usr/include/c++/11/bits/erase_if.h:
-
-/usr/include/c++/11/bits/ptr_traits.h:
-
-/usr/include/stdint.h:
-
-/usr/include/endian.h:
-
 /usr/include/x86_64-linux-gnu/sys/types.h:
 
 /usr/include/c++/11/ext/aligned_buffer.h:
 
 /usr/include/x86_64-linux-gnu/bits/byteswap.h:
-
-/usr/include/unistd.h:
-
-/usr/include/c++/11/bits/stl_algobase.h:
-
-../endpoints/login.cpp:
 
 /usr/include/x86_64-linux-gnu/bits/uintn-identity.h:
 
@@ -1193,6 +1202,10 @@ CMakeFiles/main.dir/main.cpp.o: ../main.cpp \
 
 /usr/include/c++/11/system_error:
 
+/usr/include/c++/11/cstddef:
+
+/usr/include/c++/11/bits/stl_vector.h:
+
 /usr/include/c++/11/ios:
 
 /usr/include/c++/11/utility:
@@ -1226,12 +1239,6 @@ CMakeFiles/main.dir/main.cpp.o: ../main.cpp \
 /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h:
 
 /usr/include/c++/11/bits/locale_facets.tcc:
-
-/usr/include/c++/11/bits/enable_special_members.h:
-
-/usr/include/c++/11/bits/codecvt.h:
-
-/usr/include/c++/11/bits/basic_ios.tcc:
 
 /usr/include/openssl/bioerr.h:
 
@@ -1285,7 +1292,21 @@ CMakeFiles/main.dir/main.cpp.o: ../main.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/types/sigevent_t.h:
 
+/usr/include/c++/11/bits/ptr_traits.h:
+
+/usr/include/stdint.h:
+
+/usr/include/endian.h:
+
+/usr/include/c++/11/bits/erase_if.h:
+
 /usr/include/x86_64-linux-gnu/bits/netdb.h:
+
+/usr/include/c++/11/bits/codecvt.h:
+
+/usr/include/c++/11/bits/basic_ios.tcc:
+
+/usr/include/c++/11/bits/enable_special_members.h:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h:
 
@@ -1300,6 +1321,8 @@ CMakeFiles/main.dir/main.cpp.o: ../main.cpp \
 /usr/include/x86_64-linux-gnu/bits/getopt_posix.h:
 
 /usr/include/x86_64-linux-gnu/bits/getopt_core.h:
+
+/usr/include/c++/11/vector:
 
 /usr/include/x86_64-linux-gnu/bits/unistd_ext.h:
 
@@ -1341,20 +1364,6 @@ CMakeFiles/main.dir/main.cpp.o: ../main.cpp \
 
 ../endpoints/endpointHandler.h:
 
-../response.h:
-
-../endpoints/login.h:
-
-/usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h:
-
-/usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h:
-
-/usr/include/openssl/dtls1.h:
-
-/usr/include/asm-generic/posix_types.h:
-
-/usr/include/c++/11/bits/fstream.tcc:
-
 /usr/include/c++/11/bits/stl_algo.h:
 
 /usr/include/openssl/pkcs7.h:
@@ -1368,3 +1377,7 @@ CMakeFiles/main.dir/main.cpp.o: ../main.cpp \
 /usr/include/c++/11/bits/stl_heap.h:
 
 /usr/include/c++/11/bits/hashtable.h:
+
+/usr/include/c++/11/bits/hashtable_policy.h:
+
+/usr/include/c++/11/bits/stl_uninitialized.h:

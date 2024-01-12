@@ -170,7 +170,7 @@ void Server::processClientRequests(int clientSocket, EndpointHandler& handler) {
         }
 
         std::string message = std::string(buf, 0, bytesRecv); // store the buf in a string (expected to be a JSON object)
-        std::cout << message;
+        std::cout<< "RECEIVED FROM CLIENT: " << message;
 
         try
         {
@@ -180,7 +180,7 @@ void Server::processClientRequests(int clientSocket, EndpointHandler& handler) {
             res = handler.handleRequest(req);
             nlohmann::json responseJson = {
                 {"header", res.getHeader()},
-                {"body", res.getBody()},
+                {"body", res.getBodyJson()},
                 {"code", res.getCode()}};
 
             std::string responseStr = responseJson.dump(); // convert back to string
@@ -188,6 +188,7 @@ void Server::processClientRequests(int clientSocket, EndpointHandler& handler) {
             
             nlohmann::json resBodyJson = nlohmann::json::parse(res.getBody());
             if (resBodyJson.find("service") != resBodyJson.end() && !resBodyJson["service"].is_null()){ //we entered the condition that the request obtained requires service
+                std::cout<< "SENDING TO SERVUCE: " << responseStr.c_str() << std::endl;
                 send(serviceSocket, responseStr.c_str(), responseStr.size(), 0); // send response to service
                 int bytesSvcRecv = recv(serviceSocket, bufsvc, 4096, 0); //wait for reply
                 if (bytesSvcRecv == -1) // error code for connection issue
@@ -200,27 +201,35 @@ void Server::processClientRequests(int clientSocket, EndpointHandler& handler) {
                     std::cout << "Service disconnected" << std::endl;
                     break;
                 }
-                message = std::string(buf, 0, bytesRecv);
+                message = std::string(bufsvc, 0, bytesSvcRecv);
+                std::cout<< "RECEIVED FROM SERVICE: " << responseStr.c_str() << std::endl;
                 jsonReq = nlohmann::json::parse(message);
+                req.setEndpoint(jsonReq["endpoint"]);
+                req.setBody(jsonReq.dump());
                 res = handler.handleRequest(req);
                 responseJson = {
                 {"header", res.getHeader()},
-                {"body", res.getBody()},
+                {"body", res.getBodyJson()},
                 {"code", res.getCode()}};
                 responseStr = responseJson.dump();
             }
+            std::cout << "SENDING TO CLIENT: " << responseStr.c_str() << std::endl;
             send(clientSocket, responseStr.c_str(), responseStr.size(), 0); // send response
             
         }
         catch (const nlohmann::json::exception &e)
         {
-            std::cerr << "Error parsing JSON: " << e.what() << std::endl;
-            nlohmann::json errorjson = {
+            std::cerr << "Error parsing JSON in server: " << e.what() << std::endl;
+            nlohmann::json body = {
                 {"status", "failed"},
-                {"message", "error parsing json before service"}
+                {"message", "couldnt parse JSON"}
             };
-            std::string message  = errorjson.dump();
-            send(clientSocket, message.c_str(), message.size(), 0); // send error
+            nlohmann::json failjson = {
+                {"header", "encrypted"},
+                {"body", body},
+                {"code", 300}};
+            std::string failure  = failjson.dump();
+            send(clientSocket, failure.c_str(), failure.size(), 0); 
         }
     }
 }

@@ -188,13 +188,6 @@ CMakeFiles/main.dir/main.cpp.o: \
  /home/omar/Documents/GitHub/StockMarketWebapp/Server/endpoints/endpointHandler.h \
  /home/omar/Documents/GitHub/StockMarketWebapp/Server/endpoints/endpointStrategy.h \
  /home/omar/Documents/GitHub/StockMarketWebapp/Server/endpoints/../request.h \
- /home/omar/Documents/GitHub/StockMarketWebapp/Server/endpoints/../response.h \
- /home/omar/Documents/GitHub/StockMarketWebapp/Server/endpoints/login.cpp \
- /home/omar/Documents/GitHub/StockMarketWebapp/Server/endpoints/login.h \
- /usr/include/c++/11/fstream /usr/include/c++/11/bits/codecvt.h \
- /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
- /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
- /usr/include/c++/11/bits/fstream.tcc \
  /home/omar/Documents/GitHub/StockMarketWebapp/Server/endpoints/../json.hpp \
  /usr/include/c++/11/algorithm /usr/include/c++/11/bits/stl_algo.h \
  /usr/include/c++/11/bits/algorithmfwd.h \
@@ -271,13 +264,22 @@ CMakeFiles/main.dir/main.cpp.o: \
  /usr/include/c++/11/bits/locale_facets_nonio.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/time_members.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/messages_members.h \
- /usr/include/libintl.h /usr/include/c++/11/bits/locale_facets_nonio.tcc \
+ /usr/include/libintl.h /usr/include/c++/11/bits/codecvt.h \
+ /usr/include/c++/11/bits/locale_facets_nonio.tcc \
  /usr/include/c++/11/bits/locale_conv.h /usr/include/c++/11/iomanip \
  /usr/include/c++/11/bits/quoted_string.h /usr/include/c++/11/sstream \
  /usr/include/c++/11/bits/sstream.tcc /usr/include/c++/11/codecvt \
  /usr/include/c++/11/bits/fs_dir.h /usr/include/c++/11/bits/fs_ops.h \
  /usr/include/c++/11/numeric /usr/include/c++/11/bits/stl_numeric.h \
  /usr/include/c++/11/pstl/glue_numeric_defs.h /usr/include/c++/11/any \
+ /home/omar/Documents/GitHub/StockMarketWebapp/Server/endpoints/../response.h \
+ /home/omar/Documents/GitHub/StockMarketWebapp/Server/endpoints/login.cpp \
+ /home/omar/Documents/GitHub/StockMarketWebapp/Server/endpoints/login.h \
+ /usr/include/c++/11/fstream \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
+ /usr/include/c++/11/bits/fstream.tcc \
+ /home/omar/Documents/GitHub/StockMarketWebapp/Server/endpoints/../json.hpp \
  /home/omar/jwt-cpp/include/jwt-cpp/jwt.h \
  /home/omar/jwt-cpp/include/picojson/picojson.h \
  /usr/include/c++/11/cinttypes /usr/include/inttypes.h \
@@ -345,4 +347,8 @@ CMakeFiles/main.dir/main.cpp.o: \
  /home/omar/Documents/GitHub/StockMarketWebapp/Server/endpoints/changeStock.h \
  /home/omar/Documents/GitHub/StockMarketWebapp/Server/endpoints/processedChange.cpp \
  /home/omar/Documents/GitHub/StockMarketWebapp/Server/endpoints/processedChange.h \
+ /home/omar/Documents/GitHub/StockMarketWebapp/Server/endpoints/aquireStocks.cpp \
+ /home/omar/Documents/GitHub/StockMarketWebapp/Server/endpoints/aquireStocks.h \
+ /home/omar/Documents/GitHub/StockMarketWebapp/Server/endpoints/processAquireStocks.cpp \
+ /home/omar/Documents/GitHub/StockMarketWebapp/Server/endpoints/processAquireStocks.h \
  /home/omar/Documents/GitHub/StockMarketWebapp/Server/json.hpp

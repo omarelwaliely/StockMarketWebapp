@@ -238,14 +238,6 @@ CMakeFiles/main.dir/main.cpp.o
  /home/omar/Documents/GitHub/StockMarketWebapp/Server/endpoints/endpointHandler.h
  /home/omar/Documents/GitHub/StockMarketWebapp/Server/endpoints/endpointStrategy.h
  /home/omar/Documents/GitHub/StockMarketWebapp/Server/request.h
- /home/omar/Documents/GitHub/StockMarketWebapp/Server/response.h
- /home/omar/Documents/GitHub/StockMarketWebapp/Server/endpoints/login.cpp
- /home/omar/Documents/GitHub/StockMarketWebapp/Server/endpoints/login.h
- /usr/include/c++/11/fstream
- /usr/include/c++/11/bits/codecvt.h
- /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h
- /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h
- /usr/include/c++/11/bits/fstream.tcc
  /home/omar/Documents/GitHub/StockMarketWebapp/Server/json.hpp
  /usr/include/c++/11/algorithm
  /usr/include/c++/11/bits/stl_algo.h
@@ -339,6 +331,7 @@ CMakeFiles/main.dir/main.cpp.o
  /usr/include/x86_64-linux-gnu/c++/11/bits/time_members.h
  /usr/include/x86_64-linux-gnu/c++/11/bits/messages_members.h
  /usr/include/libintl.h
+ /usr/include/c++/11/bits/codecvt.h
  /usr/include/c++/11/bits/locale_facets_nonio.tcc
  /usr/include/c++/11/bits/locale_conv.h
  /usr/include/c++/11/iomanip
@@ -352,6 +345,14 @@ CMakeFiles/main.dir/main.cpp.o
  /usr/include/c++/11/bits/stl_numeric.h
  /usr/include/c++/11/pstl/glue_numeric_defs.h
  /usr/include/c++/11/any
+ /home/omar/Documents/GitHub/StockMarketWebapp/Server/response.h
+ /home/omar/Documents/GitHub/StockMarketWebapp/Server/endpoints/login.cpp
+ /home/omar/Documents/GitHub/StockMarketWebapp/Server/endpoints/login.h
+ /usr/include/c++/11/fstream
+ /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h
+ /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h
+ /usr/include/c++/11/bits/fstream.tcc
+ /home/omar/Documents/GitHub/StockMarketWebapp/Server/json.hpp
  /home/omar/jwt-cpp/include/jwt-cpp/jwt.h
  /home/omar/jwt-cpp/include/picojson/picojson.h
  /usr/include/c++/11/cinttypes
@@ -457,5 +458,9 @@ CMakeFiles/main.dir/main.cpp.o
  /home/omar/Documents/GitHub/StockMarketWebapp/Server/endpoints/changeStock.h
  /home/omar/Documents/GitHub/StockMarketWebapp/Server/endpoints/processedChange.cpp
  /home/omar/Documents/GitHub/StockMarketWebapp/Server/endpoints/processedChange.h
+ /home/omar/Documents/GitHub/StockMarketWebapp/Server/endpoints/aquireStocks.cpp
+ /home/omar/Documents/GitHub/StockMarketWebapp/Server/endpoints/aquireStocks.h
+ /home/omar/Documents/GitHub/StockMarketWebapp/Server/endpoints/processAquireStocks.cpp
+ /home/omar/Documents/GitHub/StockMarketWebapp/Server/endpoints/processAquireStocks.h
  /home/omar/Documents/GitHub/StockMarketWebapp/Server/json.hpp
 

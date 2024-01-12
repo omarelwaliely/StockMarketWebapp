@@ -18,7 +18,7 @@ class ServiceSocket:
             jsonResponse = ""
             try:
                 jsonResponse = json.loads(response.decode('utf-8'))
-                body_json = json.loads(jsonResponse['body'])
+                body_json = jsonResponse['body']
                 message = self.endpoint_manager.execute(body_json)
                 self.client_socket.send(message.encode())
                 print(f"Sending message: {message}")

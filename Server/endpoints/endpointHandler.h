@@ -8,6 +8,8 @@
 #include "notFound.cpp"
 #include "changeStock.cpp"
 #include "processedChange.cpp"
+#include "aquireStocks.cpp"
+#include "processAquireStocks.cpp"
 
 #pragma once
 class EndpointHandler {
@@ -33,6 +35,12 @@ public:
         }
         else if (endpoint == "/processedchange") {
             strategy = new ProcessedChange();
+        }
+        else if (endpoint == "/aquirestocks") {
+            strategy = new AquireStocks();
+        }
+        else if (endpoint == "/processaquirestocks") {
+            strategy = new ProcessAquireStocks();
         }
         else{
             std::cout << "no such endpoint exists!";

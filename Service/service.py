@@ -51,7 +51,8 @@ class StockService:
         else:
             print(f"{stock_code} is not on file.")
             return False
-    
+    def fetch_stocks(self):
+        return self.stocks_data
     def random_change(self):
         while not self.stop_event.is_set():
             for _ , data in self.stocks_data.items():
