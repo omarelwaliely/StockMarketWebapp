@@ -8,12 +8,24 @@
 Response ProcessedChange::execute(const Request& request) {
     try {
         nlohmann::json bodyJson = nlohmann::json::parse(request.getBody());
+        std::ifstream file("./database/users.json");
         bool status = bodyJson["status"];
         //success
         if(status){
+            float money = bodyJson["money"];
+            std::string email = bodyJson["email"];
+            nlohmann::json users;
+            file >> users;
+            file.close();
+            float oldMoney =  users[email]["money"];
+            money += oldMoney;
+            users[email]["money"] = money;
             nlohmann::json body = {
                 {"status", "successful"},
             };
+            std::ofstream outFile("./database/users.json");
+            outFile << users.dump(4); //put it in the file
+            outFile.close();
             Response res(body.dump(),"encryptedsecretkey" , 200);
             return res; 
         }
@@ -21,7 +33,7 @@ Response ProcessedChange::execute(const Request& request) {
         else{
             nlohmann::json body = {
             {"status", "failed"},
-            {"message", "not enough funds or stock does not exist"},
+            {"message", "Not enough funds or stock does not exist"},
             };
             Response res( body.dump(),"encryptedsecretkey",300);  //we have a successful response
             return res; 

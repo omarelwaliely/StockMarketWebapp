@@ -31,7 +31,7 @@ Response Login::execute(const Request& request) {
                 std::cout << "Error: Password is incorrect. " << std::endl;
                 nlohmann::json body = {
                 {"status", "failed"},
-                {"message", "password is incorrect."}
+                {"message", "Password is incorrect."}
                 };
                 Response res(body.dump(),"encryptedsecretkey", 500);
                 return res;
@@ -48,11 +48,6 @@ Response Login::execute(const Request& request) {
             {"status", "Success"},
             {"token", tokenString}
             };
-            // nlohmann::json body = {
-            // {"status", "Success"}
-            // };
-
-            
             Response res( body.dump(),"encryptedsecretkey",200);  //we have a successful response
             return res; 
         }

@@ -24,14 +24,16 @@ class Endpoints:
     def changeStock(self,response):
         try:
             if(response['amount']<0):
-                if(self.svc.sell(response['stock'], -response['amount'])):
-                    response_data = {"endpoint": "/processedchange", "status": True}
+                returned =self.svc.sell(response['stock'], -response['amount'],response['money']) #should be response of stocks obtained from server in user_stocks.json
+                if(returned):
+                    response_data = {"endpoint": "/processedchange", "status": True, "money":returned,"email": response["email"]}
                     return json.dumps(response_data)
                 response_data = {"endpoint": "/processedchange","status": False}
                 return json.dumps(response_data)
             else:
-                if(self.svc.buy(response['stock'], response['amount'])):
-                    response_data = {"endpoint": "/processedchange","status": True}
+                returned = self.svc.buy(response['stock'], response['amount'],response['money'])
+                if(returned):
+                    response_data = {"endpoint": "/processedchange","status": True,"money":-returned, "email": response["email"]}
                     return json.dumps(response_data)
                 response_data = {"endpoint" : "/processedchange","status": False,"message" : "You are not allowed to perform that action at this time."}
                 return json.dumps(response_data)

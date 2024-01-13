@@ -29,25 +29,30 @@ class StockService:
         with open(self.stocks_file, 'w') as file:
             json.dump(data, file)
 
-    def buy(self, stock_code, amount):
+    def buy(self, stock_code, amount,money):
+        self.stocks_data = self.read_stocks()
         if stock_code in self.stocks_data: #make sure the stocks code exists
-            self.stocks_data[stock_code]["amount"] -= amount #subtract the stocks that are bought
-            if self.stocks_data[stock_code]["amount"] <0:
-                self.stocks_data[stock_code]["amount"] += amount
+            if self.stocks_data[stock_code]["price"]*amount <= money*amount:
+                self.stocks_data[stock_code]["amount"] -= amount #subtract the stocks that are bought
+                if self.stocks_data[stock_code]["amount"] <0:
+                    self.stocks_data[stock_code]["amount"] += amount
+                    return False
+            else:
                 return False
-            self.stocks_data[stock_code]["price"] *= ((self.change_percent) *amount) #update the price by y%
+            self.stocks_data[stock_code]["price"] *= ((1+self.change_percent) *amount) #update the price by y%
             self.write_stocks(self.stocks_data) #write back to file for future requests
-            return True
+            return self.stocks_data[stock_code]["price"]*amount
         else:
             print(f"{stock_code} is not on file.")
             return False
     
-    def sell(self, stock_code, amount):
+    def sell(self, stock_code, amount,stocks):
+        self.stocks_data = self.read_stocks()
         if stock_code in self.stocks_data:  #make sure the stocks code exists
             self.stocks_data[stock_code]["amount"] += amount #add the stocks that are sold
-            self.stocks_data[stock_code]["price"] *= ((1-self.change_percent) *amount) #update the price by 1-y%
+            self.stocks_data[stock_code]["price"] *= ((self.change_percent) *amount) #update the price by 1-y%
             self.write_stocks(self.stocks_data) #write back to file for future requests
-            return True
+            return self.stocks_data[stock_code]["price"]*amount
         else:
             print(f"{stock_code} is not on file.")
             return False

@@ -25,12 +25,17 @@ Response ChangeStock::execute(const Request& request) {
         }
         //forward to service
         else{
+            std::ifstream file("./database/users.json");
+            nlohmann::json users;
+            file >> users;
+            file.close();
             nlohmann::json body = {
             {"status", "Success"},
             {"service", true},
             {"stock", stock },
             {"amount", amount},
             {"email", email},
+            {"money", users[email]["money"]},
             {"endpoint","/changestock"}
             };
             Response res( body.dump(),"encryptedsecretkey",200);  //we have a successful response

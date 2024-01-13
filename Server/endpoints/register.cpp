@@ -20,7 +20,7 @@ Response Register::execute(const Request& request) {
         std::string password = bodyJson["password"];
         std::string firstName = bodyJson["firstName"];
         std::string lastName = bodyJson["lastName"];
-        if(email== "" || password == ""){
+        if(email== "" || password == "" || firstName == "" || lastName == ""){
             nlohmann::json body = {
                 {"status", "failed"},
                 {"message", "Fill all fields."}

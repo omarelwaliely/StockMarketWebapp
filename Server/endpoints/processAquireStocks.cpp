@@ -23,7 +23,7 @@ Response ProcessAquireStocks::execute(const Request& request) {
         else{
             nlohmann::json body = {
             {"status", "failed"},
-            {"message", "not enough funds or stock does not exist"},
+            {"message", "Status not obtained."},
             };
             Response res( body.dump(),"encryptedsecretkey",300);  //we have a successful response
             return res; 

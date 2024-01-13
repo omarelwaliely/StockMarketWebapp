@@ -1,4 +1,11 @@
 {
+    "inar@gmail.com": {
+        "email": "inar@gmail.com",
+        "firstName": "ff",
+        "lastName": "f",
+        "money": 2000,
+        "password": "r"
+    },
     "lfef@gmail.com": {
         "email": "lfef@gmail.com",
         "firstName": "omar",
@@ -10,7 +17,7 @@
         "email": "test@gmail.com",
         "firstName": "test",
         "lastName": "test",
-        "money": 2000,
+        "money": -2800.59326171875,
         "password": "test"
     }
 }
