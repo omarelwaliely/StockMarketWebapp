@@ -5,7 +5,7 @@
 #include "../response.h"
 
 Response Register::execute(const Request& request) {
-    std::ifstream file("/home/omar/Documents/GitHub/StockMarketWebapp/Server/database/users.json");
+    std::ifstream file("./database/users.json");
     nlohmann::json users;
     if (!file.is_open()) {
         users = {}; // File doesn't exist, create an empty JSON object

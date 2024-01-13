@@ -23,14 +23,6 @@ Response ChangeStock::execute(const Request& request) {
             Response res(body.dump(), "encryptedsecretkey", 400);
             return res;
         }
-        // if(!(headJson.find("token") != headJson.end() && !headJson["token"].is_null())){
-        //     nlohmann::json body = {
-        //         {"status", "failed"},
-        //         {"message", "failed token."}
-        //     };
-        //     Response res(body.dump(),"encryptedsecretkey" , 300);
-        //     return res; 
-        // }
         //forward to service
         else{
             nlohmann::json body = {

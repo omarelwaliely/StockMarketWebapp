@@ -11,6 +11,7 @@ private:
     int listeningSocketClients;
     sockaddr_in hintSvc;
     sockaddr_in hintClients;
+    std::ofstream logFile;
     int createSocket(int port);
     int setupSocket();
     int bindSocket();
@@ -19,6 +20,7 @@ private:
     int acceptConnection(sockaddr_in& , socklen_t& , char* , char* ,int);
     void displayClientInfo(const sockaddr_in& , char* , char* );
     void processClientRequests(int, EndpointHandler&);
+    void log(const std::string&);
 
 public:
     Server(int,int);

@@ -27,6 +27,7 @@ Server::Server(int portsvc, int portclients) { // default server which uses the 
     // below we bind the address by first converting the string to a number then we bind it to our hints address, note that 0.0.0.0 means any address
     inet_pton(AF_INET, "0.0.0.0", &hintSvc.sin_addr);
     inet_pton(AF_INET, "0.0.0.0", &hintClients.sin_addr);
+    logFile.open("server_log.txt", std::ios::app);
 }
 
 Server::Server(int portsvc, int portclients, std::string ipsvc, std::string ipclients) { // server that allows inputting ips
@@ -44,11 +45,26 @@ Server::Server(int portsvc, int portclients, std::string ipsvc, std::string ipcl
     // below we bind the address by first converting the string to a number then we bind it to our hints address, note that 0.0.0.0 means any address
     inet_pton(AF_INET,ipsvc.c_str(), &hintSvc.sin_addr);
     inet_pton(AF_INET, ipclients.c_str(), &hintClients.sin_addr);
+    logFile.open("server_log.txt", std::ios::app);
 }
 
 Server::~Server() {
+    if (logFile.is_open()) {
+        logFile.close();
+    }
 }
 
+
+void Server::log(const std::string& message) {
+    std::time_t now = std::time(0);
+    std::tm* localTime = std::localtime(&now);
+    char timeBuffer[80];
+    std::strftime(timeBuffer, sizeof(timeBuffer), "[%Y-%m-%d %H:%M:%S]", localTime);
+    std::cout << message << std::endl<<std::endl;
+    if (logFile.is_open()) {
+        logFile << timeBuffer << " " << message << std::endl << std::endl;
+    }
+}
 int Server::createSocket(int port) {
     return socket(AF_INET, SOCK_STREAM, 0); //create a socket for the ipv4 protocol no flags
 }
@@ -170,7 +186,6 @@ void Server::processClientRequests(int clientSocket, EndpointHandler& handler) {
         }
 
         std::string message = std::string(buf, 0, bytesRecv); // store the buf in a string (expected to be a JSON object)
-        std::cout<< "RECEIVED FROM CLIENT: " << message;
 
         try
         {
@@ -184,11 +199,10 @@ void Server::processClientRequests(int clientSocket, EndpointHandler& handler) {
                 {"code", res.getCode()}};
 
             std::string responseStr = responseJson.dump(); // convert back to string
-            std::cout << "Received: " << std::string(buf, 0, bytesRecv) << std::endl;
-            
+            log((std::string)"RECEIVED FROM CLIENT: " + std::string(buf, 0, bytesRecv));
             nlohmann::json resBodyJson = nlohmann::json::parse(res.getBody());
             if (resBodyJson.find("service") != resBodyJson.end() && !resBodyJson["service"].is_null()){ //we entered the condition that the request obtained requires service
-                std::cout<< "SENDING TO SERVUCE: " << responseStr.c_str() << std::endl;
+                log((std::string)"SENDING TO SERVICE: " + responseStr.c_str());
                 send(serviceSocket, responseStr.c_str(), responseStr.size(), 0); // send response to service
                 int bytesSvcRecv = recv(serviceSocket, bufsvc, 4096, 0); //wait for reply
                 if (bytesSvcRecv == -1) // error code for connection issue
@@ -202,7 +216,7 @@ void Server::processClientRequests(int clientSocket, EndpointHandler& handler) {
                     break;
                 }
                 message = std::string(bufsvc, 0, bytesSvcRecv);
-                std::cout<< "RECEIVED FROM SERVICE: " << responseStr.c_str() << std::endl;
+                log((std::string)"RECEIVED FROM SERVICE: " + message);
                 jsonReq = nlohmann::json::parse(message);
                 req.setEndpoint(jsonReq["endpoint"]);
                 req.setBody(jsonReq.dump());
@@ -213,7 +227,7 @@ void Server::processClientRequests(int clientSocket, EndpointHandler& handler) {
                 {"code", res.getCode()}};
                 responseStr = responseJson.dump();
             }
-            std::cout << "SENDING TO CLIENT: " << responseStr.c_str() << std::endl;
+            log((std::string)"SENDING TO CLIENT: " + responseStr.c_str());
             send(clientSocket, responseStr.c_str(), responseStr.size(), 0); // send response
             
         }
@@ -229,7 +243,9 @@ void Server::processClientRequests(int clientSocket, EndpointHandler& handler) {
                 {"body", body},
                 {"code", 300}};
             std::string failure  = failjson.dump();
+            log((std::string)"SENDING TO CLIENT: " + failure.c_str());
             send(clientSocket, failure.c_str(), failure.size(), 0); 
         }
     }
+    logFile.close();
 }
