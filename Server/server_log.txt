@@ -70,3 +70,287 @@
 
 [2024-01-13 18:26:15] SENDING TO CLIENT: {"body":{"status":"successful","stocks":{"AAB":{"amount":1501,"name":"AAB Inc","price":8208.795713885498},"ABC":{"amount":998,"name":"ABC Corp","price":1796.5726041373907}}},"code":200,"header":"encryptedsecretkey"}
 
+[2024-01-13 18:39:02] RECEIVED FROM CLIENT: {"endpoint":"/login","header":"token","body":{"firstName":"omar","lastName":"fa","email":"lfef@gmail.com","password":"pass"}}
+
+[2024-01-13 18:39:02] SENDING TO CLIENT: {"body":{"message":"This account does not exist.","status":"failed"},"code":300,"header":"encryptedsecretkey"}
+
+[2024-01-13 18:40:29] RECEIVED FROM CLIENT: {"endpoint":"/register","header":"token","body":{"firstName":"omar","lastName":"fa","email":"lfef@gmail.com","password":"pass"}}
+
+[2024-01-13 18:40:29] SENDING TO CLIENT: {"body":{"status":"Success","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJjdXN0b20iOiJ7XCJlbWFpbFwiOlwibGZlZkBnbWFpbC5jb21cIn0iLCJpc3MiOiJhdXRoMCJ9.DMVQvX9_jQbDo-8PNKHdYP7eHaZpQZE3hurNa5b8mIk"},"code":200,"header":"encryptedsecretkey"}
+
+[2024-01-13 18:40:30] RECEIVED FROM CLIENT: {"endpoint":"/aquirestocks","header":{"token":"token"},"body":{"email":"test@gmail.com"}}
+
+[2024-01-13 18:40:30] SENDING TO SERVICE: {"body":{"endpoint":"/fetchstocks","service":true,"status":"Success"},"code":200,"header":"encryptedsecretkey"}
+
+[2024-01-13 18:40:30] RECEIVED FROM SERVICE: {"endpoint": "/processaquirestocks", "status": true, "stocks": {"ABC": {"name": "ABC Corp", "amount": 998, "price": 1870.3381422916336}, "AAB": {"name": "AAB Inc", "amount": 1501, "price": 8281.214141475386}}}
+
+[2024-01-13 18:40:30] SENDING TO CLIENT: {"body":{"status":"successful","stocks":{"AAB":{"amount":1501,"name":"AAB Inc","price":8281.214141475386},"ABC":{"amount":998,"name":"ABC Corp","price":1870.3381422916336}}},"code":200,"header":"encryptedsecretkey"}
+
+[2024-01-13 18:58:53] RECEIVED FROM CLIENT: {"endpoint":"/login","header":"token","body":{"firstName":"","lastName":"","email":"fasf","password":"fasfsa"}}
+
+[2024-01-13 18:58:53] SENDING TO CLIENT: {"body":{"message":"This account does not exist.","status":"failed"},"code":300,"header":"encryptedsecretkey"}
+
+[2024-01-13 18:59:14] RECEIVED FROM CLIENT: {"endpoint":"/login","header":"token","body":{"firstName":"","lastName":"","email":"test@gmail.com","password":""}}
+
+[2024-01-13 18:59:14] SENDING TO CLIENT: {"body":{"message":"Fill all fields.","status":"failed"},"code":300,"header":"encryptedsecretkey"}
+
+[2024-01-13 18:59:16] RECEIVED FROM CLIENT: {"endpoint":"/login","header":"token","body":{"firstName":"","lastName":"","email":"test@gmail.com","password":"f"}}
+
+[2024-01-13 18:59:16] SENDING TO CLIENT: {"body":{"message":"This account does not exist.","status":"failed"},"code":300,"header":"encryptedsecretkey"}
+
+[2024-01-13 18:59:20] RECEIVED FROM CLIENT: {"endpoint":"/login","header":"token","body":{"firstName":"","lastName":"","email":"test@gmail.com","password":"test"}}
+
+[2024-01-13 18:59:20] SENDING TO CLIENT: {"body":{"message":"This account does not exist.","status":"failed"},"code":300,"header":"encryptedsecretkey"}
+
+[2024-01-13 18:59:21] RECEIVED FROM CLIENT: {"endpoint":"/login","header":"token","body":{"firstName":"","lastName":"","email":"test@gmail.com","password":"test"}}
+
+[2024-01-13 18:59:21] SENDING TO CLIENT: {"body":{"message":"This account does not exist.","status":"failed"},"code":300,"header":"encryptedsecretkey"}
+
+[2024-01-13 18:59:43] RECEIVED FROM CLIENT: {"endpoint":"/register","header":"token","body":{"firstName":"test","lastName":"test","email":"test@gmail.com","password":"test"}}
+
+[2024-01-13 18:59:43] SENDING TO CLIENT: {"body":{"status":"Success","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJjdXN0b20iOiJ7XCJlbWFpbFwiOlwidGVzdEBnbWFpbC5jb21cIn0iLCJpc3MiOiJhdXRoMCJ9.5czjlalINI_Lo8SPg5n783VQp0Mvckf3FG_yUGLl994"},"code":200,"header":"encryptedsecretkey"}
+
+[2024-01-13 18:59:43] RECEIVED FROM CLIENT: {"endpoint":"/aquirestocks","header":{"token":"token"},"body":{"email":"test@gmail.com"}}
+
+[2024-01-13 18:59:43] SENDING TO SERVICE: {"body":{"endpoint":"/fetchstocks","service":true,"status":"Success"},"code":200,"header":"encryptedsecretkey"}
+
+[2024-01-13 18:59:43] RECEIVED FROM SERVICE: {"endpoint": "/processaquirestocks", "status": true, "stocks": {"ABC": {"name": "ABC Corp", "amount": 998, "price": 2468.015725650737}, "AAB": {"name": "AAB Inc", "amount": 1501, "price": 8845.711374112518}}}
+
+[2024-01-13 18:59:43] SENDING TO CLIENT: {"body":{"status":"successful","stocks":{"AAB":{"amount":1501,"name":"AAB Inc","price":8845.711374112518},"ABC":{"amount":998,"name":"ABC Corp","price":2468.015725650737}}},"code":200,"header":"encryptedsecretkey"}
+
+[2024-01-13 18:59:53] RECEIVED FROM CLIENT: {"endpoint":"/login","header":"token","body":{"firstName":"","lastName":"","email":"test@gmail.com","password":"f"}}
+
+[2024-01-13 18:59:53] SENDING TO CLIENT: {"body":{"message":"password is incorrect.","status":"failed"},"code":500,"header":"encryptedsecretkey"}
+
+[2024-01-13 19:02:51] RECEIVED FROM CLIENT: {"endpoint":"/login","header":"token","body":{"firstName":"","lastName":"","email":"test@gmail.com","password":"f"}}
+
+[2024-01-13 19:02:51] SENDING TO CLIENT: {"body":{"message":"password is incorrect.","status":"failed"},"code":500,"header":"encryptedsecretkey"}
+
+[2024-01-13 19:02:55] RECEIVED FROM CLIENT: {"endpoint":"/login","header":"token","body":{"firstName":"","lastName":"","email":"test@gmail.com","password":"test"}}
+
+[2024-01-13 19:02:55] SENDING TO CLIENT: {"body":{"status":"Success","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJjdXN0b20iOiJ7XCJlbWFpbFwiOlwidGVzdEBnbWFpbC5jb21cIn0iLCJpc3MiOiJhdXRoMCJ9.5czjlalINI_Lo8SPg5n783VQp0Mvckf3FG_yUGLl994"},"code":200,"header":"encryptedsecretkey"}
+
+[2024-01-13 19:02:55] RECEIVED FROM CLIENT: {"endpoint":"/aquirestocks","header":{"token":"token"},"body":{"email":"test@gmail.com"}}
+
+[2024-01-13 19:02:55] SENDING TO SERVICE: {"body":{"endpoint":"/fetchstocks","service":true,"status":"Success"},"code":200,"header":"encryptedsecretkey"}
+
+[2024-01-13 19:02:55] RECEIVED FROM SERVICE: {"endpoint": "/processaquirestocks", "status": true, "stocks": {"ABC": {"name": "ABC Corp", "amount": 998, "price": 2563.589579907656}, "AAB": {"name": "AAB Inc", "amount": 1501, "price": 8936.800767023231}}}
+
+[2024-01-13 19:02:55] SENDING TO CLIENT: {"body":{"status":"successful","stocks":{"AAB":{"amount":1501,"name":"AAB Inc","price":8936.800767023231},"ABC":{"amount":998,"name":"ABC Corp","price":2563.589579907656}}},"code":200,"header":"encryptedsecretkey"}
+
+[2024-01-13 19:03:29] RECEIVED FROM CLIENT: {"endpoint":"/aquirestocks","header":{"token":"token"},"body":{"email":"test@gmail.com"}}
+
+[2024-01-13 19:03:29] SENDING TO SERVICE: {"body":{"endpoint":"/fetchstocks","service":true,"status":"Success"},"code":200,"header":"encryptedsecretkey"}
+
+[2024-01-13 19:03:29] RECEIVED FROM SERVICE: {"endpoint": "/processaquirestocks", "status": true, "stocks": {"ABC": {"name": "ABC Corp", "amount": 998, "price": 2582.7597689886206}, "AAB": {"name": "AAB Inc", "amount": 1501, "price": 8957.562479243712}}}
+
+[2024-01-13 19:03:29] SENDING TO CLIENT: {"body":{"status":"successful","stocks":{"AAB":{"amount":1501,"name":"AAB Inc","price":8957.562479243712},"ABC":{"amount":998,"name":"ABC Corp","price":2582.7597689886206}}},"code":200,"header":"encryptedsecretkey"}
+
+[2024-01-13 19:03:36] RECEIVED FROM CLIENT: {"endpoint":"/aquirestocks","header":{"token":"token"},"body":{"email":"test@gmail.com"}}
+
+[2024-01-13 19:03:36] SENDING TO SERVICE: {"body":{"endpoint":"/fetchstocks","service":true,"status":"Success"},"code":200,"header":"encryptedsecretkey"}
+
+[2024-01-13 19:03:36] RECEIVED FROM SERVICE: {"endpoint": "/processaquirestocks", "status": true, "stocks": {"ABC": {"name": "ABC Corp", "amount": 998, "price": 2584.2924837152646}, "AAB": {"name": "AAB Inc", "amount": 1501, "price": 8961.616191316809}}}
+
+[2024-01-13 19:03:36] SENDING TO CLIENT: {"body":{"status":"successful","stocks":{"AAB":{"amount":1501,"name":"AAB Inc","price":8961.616191316809},"ABC":{"amount":998,"name":"ABC Corp","price":2584.2924837152646}}},"code":200,"header":"encryptedsecretkey"}
+
+[2024-01-13 19:03:57] RECEIVED FROM CLIENT: {"endpoint":"/aquirestocks","header":{"token":"token"},"body":{"email":"test@gmail.com"}}
+
+[2024-01-13 19:03:57] SENDING TO SERVICE: {"body":{"endpoint":"/fetchstocks","service":true,"status":"Success"},"code":200,"header":"encryptedsecretkey"}
+
+[2024-01-13 19:03:57] RECEIVED FROM SERVICE: {"endpoint": "/processaquirestocks", "status": true, "stocks": {"ABC": {"name": "ABC Corp", "amount": 998, "price": 2596.9090556527744}, "AAB": {"name": "AAB Inc", "amount": 1501, "price": 8973.653264190083}}}
+
+[2024-01-13 19:03:57] SENDING TO CLIENT: {"body":{"status":"successful","stocks":{"AAB":{"amount":1501,"name":"AAB Inc","price":8973.653264190083},"ABC":{"amount":998,"name":"ABC Corp","price":2596.9090556527744}}},"code":200,"header":"encryptedsecretkey"}
+
+[2024-01-13 19:04:26] RECEIVED FROM CLIENT: {"endpoint":"/aquirestocks","header":{"token":"token"},"body":{"email":"test@gmail.com"}}
+
+[2024-01-13 19:04:26] SENDING TO SERVICE: {"body":{"endpoint":"/fetchstocks","service":true,"status":"Success"},"code":200,"header":"encryptedsecretkey"}
+
+[2024-01-13 19:04:26] RECEIVED FROM SERVICE: {"endpoint": "/processaquirestocks", "status": true, "stocks": {"ABC": {"name": "ABC Corp", "amount": 998, "price": 2610.5629066824104}, "AAB": {"name": "AAB Inc", "amount": 1501, "price": 8987.360515735478}}}
+
+[2024-01-13 19:04:26] SENDING TO CLIENT: {"body":{"status":"successful","stocks":{"AAB":{"amount":1501,"name":"AAB Inc","price":8987.360515735478},"ABC":{"amount":998,"name":"ABC Corp","price":2610.5629066824104}}},"code":200,"header":"encryptedsecretkey"}
+
+[2024-01-13 19:04:34] RECEIVED FROM CLIENT: {"endpoint":"/changestock","header":{"token":"token"},"body":{"amount":-1,"stock":"AAB","email":"test@gmail.com"}}
+
+[2024-01-13 19:04:34] SENDING TO SERVICE: {"body":{"amount":-1,"email":"test@gmail.com","endpoint":"/changestock","service":true,"status":"Success","stock":"AAB"},"code":200,"header":"encryptedsecretkey"}
+
+[2024-01-13 19:04:34] RECEIVED FROM SERVICE: {"endpoint": "/processedchange", "status": true}
+
+[2024-01-13 19:04:34] SENDING TO CLIENT: {"body":{"status":"successful"},"code":200,"header":"encryptedsecretkey"}
+
+[2024-01-13 19:04:34] RECEIVED FROM CLIENT: {"endpoint":"/aquirestocks","header":{"token":"token"},"body":{"email":"test@gmail.com"}}
+
+[2024-01-13 19:04:34] SENDING TO SERVICE: {"body":{"endpoint":"/fetchstocks","service":true,"status":"Success"},"code":200,"header":"encryptedsecretkey"}
+
+[2024-01-13 19:04:34] RECEIVED FROM SERVICE: {"endpoint": "/processaquirestocks", "status": true, "stocks": {"ABC": {"name": "ABC Corp", "amount": 998, "price": 2613.3598499375075}, "AAB": {"name": "AAB Inc", "amount": 1502, "price": 8900.380890418517}}}
+
+[2024-01-13 19:04:34] SENDING TO CLIENT: {"body":{"status":"successful","stocks":{"AAB":{"amount":1502,"name":"AAB Inc","price":8900.380890418517},"ABC":{"amount":998,"name":"ABC Corp","price":2613.3598499375075}}},"code":200,"header":"encryptedsecretkey"}
+
+[2024-01-13 19:04:36] RECEIVED FROM CLIENT: {"endpoint":"/changestock","header":{"token":"token"},"body":{"amount":-1,"stock":"AAB","email":"test@gmail.com"}}
+
+[2024-01-13 19:04:36] SENDING TO SERVICE: {"body":{"amount":-1,"email":"test@gmail.com","endpoint":"/changestock","service":true,"status":"Success","stock":"AAB"},"code":200,"header":"encryptedsecretkey"}
+
+[2024-01-13 19:04:36] RECEIVED FROM SERVICE: {"endpoint": "/processedchange", "status": true}
+
+[2024-01-13 19:04:36] SENDING TO CLIENT: {"body":{"status":"successful"},"code":200,"header":"encryptedsecretkey"}
+
+[2024-01-13 19:04:36] RECEIVED FROM CLIENT: {"endpoint":"/aquirestocks","header":{"token":"token"},"body":{"email":"test@gmail.com"}}
+
+[2024-01-13 19:04:36] SENDING TO SERVICE: {"body":{"endpoint":"/fetchstocks","service":true,"status":"Success"},"code":200,"header":"encryptedsecretkey"}
+
+[2024-01-13 19:04:36] RECEIVED FROM SERVICE: {"endpoint": "/processaquirestocks", "status": true, "stocks": {"ABC": {"name": "ABC Corp", "amount": 998, "price": 2614.8074079198027}, "AAB": {"name": "AAB Inc", "amount": 1503, "price": 8812.758117832102}}}
+
+[2024-01-13 19:04:36] SENDING TO CLIENT: {"body":{"status":"successful","stocks":{"AAB":{"amount":1503,"name":"AAB Inc","price":8812.758117832102},"ABC":{"amount":998,"name":"ABC Corp","price":2614.8074079198027}}},"code":200,"header":"encryptedsecretkey"}
+
+[2024-01-13 19:04:39] RECEIVED FROM CLIENT: {"endpoint":"/changestock","header":{"token":"token"},"body":{"amount":-100,"stock":"AAB","email":"test@gmail.com"}}
+
+[2024-01-13 19:04:39] SENDING TO SERVICE: {"body":{"amount":-100,"email":"test@gmail.com","endpoint":"/changestock","service":true,"status":"Success","stock":"AAB"},"code":200,"header":"encryptedsecretkey"}
+
+[2024-01-13 19:04:39] RECEIVED FROM SERVICE: {"endpoint": "/processedchange", "status": true}
+
+[2024-01-13 19:04:39] SENDING TO CLIENT: {"body":{"status":"successful"},"code":200,"header":"encryptedsecretkey"}
+
+[2024-01-13 19:04:39] RECEIVED FROM CLIENT: {"endpoint":"/aquirestocks","header":{"token":"token"},"body":{"email":"test@gmail.com"}}
+
+[2024-01-13 19:04:39] SENDING TO SERVICE: {"body":{"endpoint":"/fetchstocks","service":true,"status":"Success"},"code":200,"header":"encryptedsecretkey"}
+
+[2024-01-13 19:04:39] RECEIVED FROM SERVICE: {"endpoint": "/processaquirestocks", "status": true, "stocks": {"ABC": {"name": "ABC Corp", "amount": 998, "price": 2616.7707248287284}, "AAB": {"name": "AAB Inc", "amount": 1603, "price": 872562.5721071578}}}
+
+[2024-01-13 19:04:39] SENDING TO CLIENT: {"body":{"status":"successful","stocks":{"AAB":{"amount":1603,"name":"AAB Inc","price":872562.5721071578},"ABC":{"amount":998,"name":"ABC Corp","price":2616.7707248287284}}},"code":200,"header":"encryptedsecretkey"}
+
+[2024-01-13 19:04:43] RECEIVED FROM CLIENT: {"endpoint":"/changestock","header":{"token":"token"},"body":{"amount":-200000,"stock":"AAB","email":"test@gmail.com"}}
+
+[2024-01-13 19:04:43] SENDING TO SERVICE: {"body":{"amount":-200000,"email":"test@gmail.com","endpoint":"/changestock","service":true,"status":"Success","stock":"AAB"},"code":200,"header":"encryptedsecretkey"}
+
+[2024-01-13 19:04:43] RECEIVED FROM SERVICE: {"endpoint": "/processedchange", "status": true}
+
+[2024-01-13 19:04:43] SENDING TO CLIENT: {"body":{"status":"successful"},"code":200,"header":"encryptedsecretkey"}
+
+[2024-01-13 19:04:43] RECEIVED FROM CLIENT: {"endpoint":"/aquirestocks","header":{"token":"token"},"body":{"email":"test@gmail.com"}}
+
+[2024-01-13 19:04:43] SENDING TO SERVICE: {"body":{"endpoint":"/fetchstocks","service":true,"status":"Success"},"code":200,"header":"encryptedsecretkey"}
+
+[2024-01-13 19:04:43] RECEIVED FROM SERVICE: {"endpoint": "/processaquirestocks", "status": true, "stocks": {"ABC": {"name": "ABC Corp", "amount": 998, "price": 2619.4831202084133}, "AAB": {"name": "AAB Inc", "amount": 201603, "price": 172767945584.7877}}}
+
+[2024-01-13 19:04:43] SENDING TO CLIENT: {"body":{"status":"successful","stocks":{"AAB":{"amount":201603,"name":"AAB Inc","price":172767945584.7877},"ABC":{"amount":998,"name":"ABC Corp","price":2619.4831202084133}}},"code":200,"header":"encryptedsecretkey"}
+
+[2024-01-13 19:04:51] RECEIVED FROM CLIENT: {"endpoint":"/changestock","header":{"token":"token"},"body":{"amount":-200000,"stock":"AAB","email":"test@gmail.com"}}
+
+[2024-01-13 19:04:51] SENDING TO SERVICE: {"body":{"amount":-200000,"email":"test@gmail.com","endpoint":"/changestock","service":true,"status":"Success","stock":"AAB"},"code":200,"header":"encryptedsecretkey"}
+
+[2024-01-13 19:04:51] RECEIVED FROM SERVICE: {"endpoint": "/processedchange", "status": true}
+
+[2024-01-13 19:04:51] SENDING TO CLIENT: {"body":{"status":"successful"},"code":200,"header":"encryptedsecretkey"}
+
+[2024-01-13 19:04:51] RECEIVED FROM CLIENT: {"endpoint":"/aquirestocks","header":{"token":"token"},"body":{"email":"test@gmail.com"}}
+
+[2024-01-13 19:04:51] SENDING TO SERVICE: {"body":{"endpoint":"/fetchstocks","service":true,"status":"Success"},"code":200,"header":"encryptedsecretkey"}
+
+[2024-01-13 19:04:51] RECEIVED FROM SERVICE: {"endpoint": "/processaquirestocks", "status": true, "stocks": {"ABC": {"name": "ABC Corp", "amount": 998, "price": 2623.3586859662587}, "AAB": {"name": "AAB Inc", "amount": 401603, "price": 3.4208053226388252e+16}}}
+
+[2024-01-13 19:04:51] SENDING TO CLIENT: {"body":{"status":"successful","stocks":{"AAB":{"amount":401603,"name":"AAB Inc","price":3.4208053226388252e+16},"ABC":{"amount":998,"name":"ABC Corp","price":2623.3586859662587}}},"code":200,"header":"encryptedsecretkey"}
+
+[2024-01-13 19:05:01] RECEIVED FROM CLIENT: {"endpoint":"/changestock","header":{"token":"token"},"body":{"amount":-200000,"stock":"AAB","email":"test@gmail.com"}}
+
+[2024-01-13 19:05:01] SENDING TO SERVICE: {"body":{"amount":-200000,"email":"test@gmail.com","endpoint":"/changestock","service":true,"status":"Success","stock":"AAB"},"code":200,"header":"encryptedsecretkey"}
+
+[2024-01-13 19:05:01] RECEIVED FROM SERVICE: {"endpoint": "/processedchange", "status": true}
+
+[2024-01-13 19:05:01] SENDING TO CLIENT: {"body":{"status":"successful"},"code":200,"header":"encryptedsecretkey"}
+
+[2024-01-13 19:05:01] RECEIVED FROM CLIENT: {"endpoint":"/aquirestocks","header":{"token":"token"},"body":{"email":"test@gmail.com"}}
+
+[2024-01-13 19:05:01] SENDING TO SERVICE: {"body":{"endpoint":"/fetchstocks","service":true,"status":"Success"},"code":200,"header":"encryptedsecretkey"}
+
+[2024-01-13 19:05:01] RECEIVED FROM SERVICE: {"endpoint": "/processaquirestocks", "status": true, "stocks": {"ABC": {"name": "ABC Corp", "amount": 998, "price": 2626.824136951601}, "AAB": {"name": "AAB Inc", "amount": 601603, "price": 6.773194538824874e+21}}}
+
+[2024-01-13 19:05:01] SENDING TO CLIENT: {"body":{"status":"successful","stocks":{"AAB":{"amount":601603,"name":"AAB Inc","price":6.773194538824874e+21},"ABC":{"amount":998,"name":"ABC Corp","price":2626.824136951601}}},"code":200,"header":"encryptedsecretkey"}
+
+[2024-01-13 19:05:13] RECEIVED FROM CLIENT: {"endpoint":"/changestock","header":{"token":"token"},"body":{"amount":10000000000,"stock":"AAB","email":"test@gmail.com"}}
+
+[2024-01-13 19:05:13] SENDING TO SERVICE: {"body":{"amount":1410065408,"email":"test@gmail.com","endpoint":"/changestock","service":true,"status":"Success","stock":"AAB"},"code":200,"header":"encryptedsecretkey"}
+
+[2024-01-13 19:05:13] RECEIVED FROM SERVICE: {"endpoint": "/processedchange", "status": false, "message": "You are not allowed to perform that action at this time."}
+
+[2024-01-13 19:05:13] SENDING TO CLIENT: {"body":{"message":"not enough funds or stock does not exist","status":"failed"},"code":300,"header":"encryptedsecretkey"}
+
+[2024-01-13 19:05:24] RECEIVED FROM CLIENT: {"endpoint":"/changestock","header":{"token":"token"},"body":{"amount":10000000000,"stock":"AAB","email":"test@gmail.com"}}
+
+[2024-01-13 19:05:24] SENDING TO SERVICE: {"body":{"amount":1410065408,"email":"test@gmail.com","endpoint":"/changestock","service":true,"status":"Success","stock":"AAB"},"code":200,"header":"encryptedsecretkey"}
+
+[2024-01-13 19:05:24] RECEIVED FROM SERVICE: {"endpoint": "/processedchange", "status": false, "message": "You are not allowed to perform that action at this time."}
+
+[2024-01-13 19:05:24] SENDING TO CLIENT: {"body":{"message":"not enough funds or stock does not exist","status":"failed"},"code":300,"header":"encryptedsecretkey"}
+
+[2024-01-13 19:05:28] RECEIVED FROM CLIENT: {"endpoint":"/changestock","header":{"token":"token"},"body":{"amount":1,"stock":"AAB","email":"test@gmail.com"}}
+
+[2024-01-13 19:05:28] SENDING TO SERVICE: {"body":{"amount":1,"email":"test@gmail.com","endpoint":"/changestock","service":true,"status":"Success","stock":"AAB"},"code":200,"header":"encryptedsecretkey"}
+
+[2024-01-13 19:05:28] RECEIVED FROM SERVICE: {"endpoint": "/processedchange", "status": true}
+
+[2024-01-13 19:05:28] SENDING TO CLIENT: {"body":{"status":"successful"},"code":200,"header":"encryptedsecretkey"}
+
+[2024-01-13 19:05:28] RECEIVED FROM CLIENT: {"endpoint":"/aquirestocks","header":{"token":"token"},"body":{"email":"test@gmail.com"}}
+
+[2024-01-13 19:05:28] SENDING TO SERVICE: {"body":{"endpoint":"/fetchstocks","service":true,"status":"Success"},"code":200,"header":"encryptedsecretkey"}
+
+[2024-01-13 19:05:28] RECEIVED FROM SERVICE: {"endpoint": "/processaquirestocks", "status": true, "stocks": {"ABC": {"name": "ABC Corp", "amount": 998, "price": 2641.40211142775}, "AAB": {"name": "AAB Inc", "amount": 601602, "price": 6.705462593436624e+21}}}
+
+[2024-01-13 19:05:28] SENDING TO CLIENT: {"body":{"status":"successful","stocks":{"AAB":{"amount":601602,"name":"AAB Inc","price":6.705462593436624e+21},"ABC":{"amount":998,"name":"ABC Corp","price":2641.40211142775}}},"code":200,"header":"encryptedsecretkey"}
+
+[2024-01-13 19:05:43] RECEIVED FROM CLIENT: {"endpoint":"/changestock","header":{"token":"token"},"body":{"amount":200000,"stock":"AAB","email":"test@gmail.com"}}
+
+[2024-01-13 19:05:43] SENDING TO SERVICE: {"body":{"amount":200000,"email":"test@gmail.com","endpoint":"/changestock","service":true,"status":"Success","stock":"AAB"},"code":200,"header":"encryptedsecretkey"}
+
+[2024-01-13 19:05:43] RECEIVED FROM SERVICE: {"endpoint": "/processedchange", "status": true}
+
+[2024-01-13 19:05:43] SENDING TO CLIENT: {"body":{"status":"successful"},"code":200,"header":"encryptedsecretkey"}
+
+[2024-01-13 19:05:43] RECEIVED FROM CLIENT: {"endpoint":"/aquirestocks","header":{"token":"token"},"body":{"email":"test@gmail.com"}}
+
+[2024-01-13 19:05:43] SENDING TO SERVICE: {"body":{"endpoint":"/fetchstocks","service":true,"status":"Success"},"code":200,"header":"encryptedsecretkey"}
+
+[2024-01-13 19:05:43] RECEIVED FROM SERVICE: {"endpoint": "/processaquirestocks", "status": true, "stocks": {"ABC": {"name": "ABC Corp", "amount": 998, "price": 2650.0740204019557}, "AAB": {"name": "AAB Inc", "amount": 401602, "price": 1.3276815935004517e+27}}}
+
+[2024-01-13 19:05:43] SENDING TO CLIENT: {"body":{"status":"successful","stocks":{"AAB":{"amount":401602,"name":"AAB Inc","price":1.3276815935004517e+27},"ABC":{"amount":998,"name":"ABC Corp","price":2650.0740204019557}}},"code":200,"header":"encryptedsecretkey"}
+
+[2024-01-13 19:05:43] RECEIVED FROM CLIENT: {"endpoint":"/changestock","header":{"token":"token"},"body":{"amount":200000,"stock":"AAB","email":"test@gmail.com"}}
+
+[2024-01-13 19:05:43] SENDING TO SERVICE: {"body":{"amount":200000,"email":"test@gmail.com","endpoint":"/changestock","service":true,"status":"Success","stock":"AAB"},"code":200,"header":"encryptedsecretkey"}
+
+[2024-01-13 19:05:43] RECEIVED FROM SERVICE: {"endpoint": "/processedchange", "status": true}
+
+[2024-01-13 19:05:43] SENDING TO CLIENT: {"body":{"status":"successful"},"code":200,"header":"encryptedsecretkey"}
+
+[2024-01-13 19:05:43] RECEIVED FROM CLIENT: {"endpoint":"/aquirestocks","header":{"token":"token"},"body":{"email":"test@gmail.com"}}
+
+[2024-01-13 19:05:43] SENDING TO SERVICE: {"body":{"endpoint":"/fetchstocks","service":true,"status":"Success"},"code":200,"header":"encryptedsecretkey"}
+
+[2024-01-13 19:05:43] RECEIVED FROM SERVICE: {"endpoint": "/processaquirestocks", "status": true, "stocks": {"ABC": {"name": "ABC Corp", "amount": 998, "price": 2650.0740204019557}, "AAB": {"name": "AAB Inc", "amount": 201602, "price": 2.6288095551308946e+32}}}
+
+[2024-01-13 19:05:43] SENDING TO CLIENT: {"body":{"status":"successful","stocks":{"AAB":{"amount":201602,"name":"AAB Inc","price":2.6288095551308946e+32},"ABC":{"amount":998,"name":"ABC Corp","price":2650.0740204019557}}},"code":200,"header":"encryptedsecretkey"}
+
+[2024-01-13 19:05:43] RECEIVED FROM CLIENT: {"endpoint":"/changestock","header":{"token":"token"},"body":{"amount":200000,"stock":"AAB","email":"test@gmail.com"}}
+
+[2024-01-13 19:05:43] SENDING TO SERVICE: {"body":{"amount":200000,"email":"test@gmail.com","endpoint":"/changestock","service":true,"status":"Success","stock":"AAB"},"code":200,"header":"encryptedsecretkey"}
+
+[2024-01-13 19:05:43] RECEIVED FROM SERVICE: {"endpoint": "/processedchange", "status": true}
+
+[2024-01-13 19:05:43] SENDING TO CLIENT: {"body":{"status":"successful"},"code":200,"header":"encryptedsecretkey"}
+
+[2024-01-13 19:05:43] RECEIVED FROM CLIENT: {"endpoint":"/aquirestocks","header":{"token":"token"},"body":{"email":"test@gmail.com"}}
+
+[2024-01-13 19:05:43] SENDING TO SERVICE: {"body":{"endpoint":"/fetchstocks","service":true,"status":"Success"},"code":200,"header":"encryptedsecretkey"}
+
+[2024-01-13 19:05:43] RECEIVED FROM SERVICE: {"endpoint": "/processaquirestocks", "status": true, "stocks": {"ABC": {"name": "ABC Corp", "amount": 998, "price": 2650.0740204019557}, "AAB": {"name": "AAB Inc", "amount": 1602, "price": 5.2050429191591715e+37}}}
+
+[2024-01-13 19:05:43] SENDING TO CLIENT: {"body":{"status":"successful","stocks":{"AAB":{"amount":1602,"name":"AAB Inc","price":5.2050429191591715e+37},"ABC":{"amount":998,"name":"ABC Corp","price":2650.0740204019557}}},"code":200,"header":"encryptedsecretkey"}
+
+[2024-01-13 19:05:43] RECEIVED FROM CLIENT: {"endpoint":"/changestock","header":{"token":"token"},"body":{"amount":200000,"stock":"AAB","email":"test@gmail.com"}}
+
+[2024-01-13 19:05:43] SENDING TO SERVICE: {"body":{"amount":200000,"email":"test@gmail.com","endpoint":"/changestock","service":true,"status":"Success","stock":"AAB"},"code":200,"header":"encryptedsecretkey"}
+
+[2024-01-13 19:05:43] RECEIVED FROM SERVICE: {"endpoint": "/processedchange", "status": false, "message": "You are not allowed to perform that action at this time."}
+
+[2024-01-13 19:05:43] SENDING TO CLIENT: {"body":{"message":"not enough funds or stock does not exist","status":"failed"},"code":300,"header":"encryptedsecretkey"}
+

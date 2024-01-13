@@ -18,6 +18,8 @@ Response Register::execute(const Request& request) {
         nlohmann::json bodyJson = nlohmann::json::parse(request.getBody());
         std::string email = bodyJson["email"];
         std::string password = bodyJson["password"];
+        std::string firstName = bodyJson["firstName"];
+        std::string lastName = bodyJson["lastName"];
         if(email== "" || password == ""){
             nlohmann::json body = {
                 {"status", "failed"},
@@ -38,8 +40,30 @@ Response Register::execute(const Request& request) {
 
         users[email] = {
             {"email", email},
-            {"password", password}
+            {"password", password},
+            {"firstName", firstName},
+            {"lastName", lastName},
+            {"money",2000}
         };
+        nlohmann::json payload = {
+            {"email", email}
+            };
+            auto token = jwt::create().set_type("JWS")
+                                    .set_issuer("auth0")
+                                    .set_payload_claim("custom", jwt::claim(payload.dump()))
+                                    .sign(jwt::algorithm::hs256{"secret"});//hidden_secret should probably be kept in an env var ill leave it for now
+            std::string tokenString = token;
+            nlohmann::json body = {
+            {"status", "Success"},
+            {"token", tokenString}
+            };
+        std::ofstream outFile("./database/users.json");
+        outFile << users.dump(4); //put it in the file
+        outFile.close();
+        std::cout << "User registered" << std::endl; //just in case for debugging
+        Response res( body.dump(),"encryptedsecretkey",200);  //we have a successful response
+        return res; 
+            
     } catch (const nlohmann::json::exception& e) { //if there is an  exception with reading the json we will let that error be known in the json
         std::cout << "Error parsing JSON: " << e.what() << std::endl; //we print the error in console
         nlohmann::json body = {
@@ -49,16 +73,4 @@ Response Register::execute(const Request& request) {
         Response res(body.dump(),"encryptedsecretkey", 300);
         return res;
     }
-
-    std::ofstream outFile("./database/users.json");
-    outFile << users.dump(4); //put it in the file
-    outFile.close();
-
-    std::cout << "User registered" << std::endl; //just in case for debugging
-
-    nlohmann::json body = {
-        {"status", "Success"}
-    };
-    Response res( body.dump(),"encryptedsecretkey",200);  //we have a successful response
-    return res;
 }

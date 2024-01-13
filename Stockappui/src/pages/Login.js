@@ -8,7 +8,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import useSocket from '../services/useSocket';
-
+import { red } from '@mui/material/colors';
 const Login = () => {
   const navigate = useNavigate();
   const socket = useSocket('ws://localhost:3001');
@@ -18,6 +18,7 @@ const Login = () => {
     email: '',
     password: '',
   });
+  const [displayText, setDisplayText] = useState('');
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -39,11 +40,12 @@ const Login = () => {
           socket.addEventListener('message', (event) => {
             const data = JSON.parse(event.data);
             if (data.code === 200) {
-              console.log('Login successful!');
+              setDisplayText('Login successful!')
               navigate("/managestock")
               console.log(data.body.token);
             } else {
               console.error('Login failed:', data.body.message);
+              setDisplayText(data.body.message)
             }
             resolve();
           });
@@ -98,6 +100,7 @@ const Login = () => {
             value={formData.password}
             onChange={handleChange}
           />
+          <Typography sx={{color: "orange"}}>{displayText}</Typography>
           <Button
             type="submit"
             fullWidth

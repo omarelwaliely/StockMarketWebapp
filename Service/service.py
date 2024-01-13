@@ -35,7 +35,7 @@ class StockService:
             if self.stocks_data[stock_code]["amount"] <0:
                 self.stocks_data[stock_code]["amount"] += amount
                 return False
-            self.stocks_data[stock_code]["price"] *= ((1-self.change_percent) *amount) #update the price by y%
+            self.stocks_data[stock_code]["price"] *= ((self.change_percent) *amount) #update the price by y%
             self.write_stocks(self.stocks_data) #write back to file for future requests
             return True
         else:

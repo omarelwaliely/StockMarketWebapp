@@ -12,6 +12,7 @@ import useSocket from '../services/useSocket';
 const Register = () => {
   const navigate = useNavigate();
   const socket = useSocket('ws://localhost:3001');
+  const [displayText,setDisplayText] = useState('')
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -30,7 +31,7 @@ const Register = () => {
     try {
       if (socket.readyState === WebSocket.OPEN) {
         const message = {
-          endpoint: '/login',
+          endpoint: '/register',
           header: 'token',
           body: formData,
         };
@@ -41,9 +42,11 @@ const Register = () => {
           socket.addEventListener('message', (event) => {
             const data = JSON.parse(event.data);
             if (data.code === 200) {
+              setDisplayText("Registration successful");
               console.log('Registration successful!');
               navigate("/managestock")
             } else {
+              setDisplayText(data.body.message);
               console.error('Registration failed:', data.body.message);
             }
             resolve();
@@ -129,6 +132,7 @@ const Register = () => {
             Sign Up
           </Button>
         </form>
+        <Typography sx={{color: "orange"}}>{displayText}</Typography>
         <Link to="/login" variant="body2" style={{ color: '#fff' }}>
           Already have an account? Sign in
         </Link>

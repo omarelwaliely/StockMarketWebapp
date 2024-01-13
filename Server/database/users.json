@@ -1,10 +1,16 @@
 {
+    "lfef@gmail.com": {
+        "email": "lfef@gmail.com",
+        "firstName": "omar",
+        "lastName": "fa",
+        "money": 2000,
+        "password": "pass"
+    },
     "test@gmail.com": {
         "email": "test@gmail.com",
+        "firstName": "test",
+        "lastName": "test",
+        "money": 2000,
         "password": "test"
-    },
-    "user@example.com": {
-        "email": "user@example.com",
-        "password": "securepassword123"
     }
 }

@@ -16,6 +16,7 @@ const StockPage = () => {
   const [amount, setAmount] = useState(0);
   const [action, setAction] = useState('');
   const [selectedStock, setSelectedStock] = useState('');
+  const [displayText, setDisplayText] = useState('');
   const socket = useSocket('ws://localhost:3001');
   const [stocks, setStocks] = useState({});
   const [fetch, setFetch] = useState(false);
@@ -77,7 +78,9 @@ const StockPage = () => {
                 console.log('Success');
                 console.log(data.body);
                 setStocks(data.body.stocks);
+                setDisplayText("");
               } else {
+                setDisplayText(data.body.message);
                 console.error('Aquire failed:', data.body.message);
               }
               resolve();
@@ -188,7 +191,7 @@ const StockPage = () => {
         <Typography variant="body1" align="center">
           Amount: {amount}
         </Typography>
-
+        <Typography sx={{color: "orange"}}>{displayText}</Typography>
         <Button
           fullWidth
           variant="contained"
